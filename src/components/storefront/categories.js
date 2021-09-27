@@ -5,16 +5,14 @@ import { connect } from "react-redux";
 import { choosenCat, reset } from "../../store/categories";
 
 const Categories = (props) => {
+  console.log('props-->',props);
   return (
     <section>
       <Breadcrumbs>
-        <Link color="inherit" onClick={props.reset()}>
-          ALL
-        </Link>
-        <Link color="inherit" onClick={props.choosenCat("FOOD")}>
+        <Link color="inherit" onClick={()=>props.choosenCat("FOOD")}>
           FOOD
         </Link>
-        <Link color="inherit" onClick={props.choosenCat("ELECTRONICS")}>
+        <Link color="inherit" onClick={()=>props.choosenCat("ELECTRONICS")}>
           ELECTRONICS
         </Link>
       </Breadcrumbs>
@@ -22,7 +20,7 @@ const Categories = (props) => {
   );
 };
 const mapStateToProps = (state) => ({
-  categories:state.categories,
+  categories:state.categoriesReducer.categories,
 });
 
 const mapDispatchToProps = { choosenCat, reset };

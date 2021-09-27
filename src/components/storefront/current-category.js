@@ -5,6 +5,8 @@ const ActiveCategory = (props) => {
   return <h1>{props.ActiveCategory}</h1>;
 };
 
-const mapStateToProps = (state) => (console.log('fat7e',state));
+const mapStateToProps = (state) => ({
+  ActiveCategory:state.categoriesReducer.active
+});
 
 export default connect(mapStateToProps)(ActiveCategory);
